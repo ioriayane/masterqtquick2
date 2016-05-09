@@ -5,22 +5,20 @@ import QtQuick.Layouts 1.1
 
 ApplicationWindow {
   visible: true
-  width: 640
-  height: 480
+  width: 640; height: 480
   title: "Calendar Example"
 
   //日付の文字列を作る
   function makeDateString(d){
     return "%1/%2/%3".arg(d.getFullYear()).arg(d.getMonth()+1).arg(d.getDate())
   }
-
   //日付の入力エリア
   TextField {
-    id: inputField
+    id: inputText
+    x: 10; y: 10
     readOnly: true
     horizontalAlignment: Text.AlignHCenter
     Component.onCompleted: {
-      var d = new Date()
       //未入力状態のときのテキストに今日の日付を設定
       placeholderText = makeDateString(new Date())
     }
@@ -29,19 +27,18 @@ ApplicationWindow {
       onClicked: inputCalendar.visible = !inputCalendar.visible
     }
   }
+  //カレンダー
   Calendar {
     id: inputCalendar
     width: 150
     height: 170
-    anchors.left: inputField.left
-    anchors.top: inputField.bottom
-    //    visible: false
-    //    weekNumbersVisible: true
-    //    dayOfWeekFormat: Locale.LongFormat
+    anchors.left: inputText.left
+    anchors.top: inputText.bottom
+    visible: false
 
     //選択した日付をテキストボックスに入力
     onClicked: {
-      inputField.text = makeDateString(date)
+      inputText.text = makeDateString(date)
       visible = false
     }
 
