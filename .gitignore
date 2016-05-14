@@ -31,3 +31,5 @@ build-*
 
 *.BAK
 Thumbs.db
+
+*.keystore
