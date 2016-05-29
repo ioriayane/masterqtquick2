@@ -17,8 +17,8 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="MenuIcon.svg"
    inkscape:export-filename="D:\iori\Documents\GitHub\masterqtquick2\resources\MenuIcon.png"
-   inkscape:export-xdpi="6.26298"
-   inkscape:export-ydpi="6.26298">
+   inkscape:export-xdpi="7.9899998"
+   inkscape:export-ydpi="7.9899998">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -28,11 +28,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="27.728592"
-     inkscape:cy="599.69255"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="366.91073"
+     inkscape:cy="698.86241"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer6"
      showgrid="true"
      inkscape:window-width="1920"
      inkscape:window-height="1147"
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -59,7 +59,8 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="枠"
-     style="display:none">
+     style="display:none"
+     sodipodi:insensitive="true">
     <rect
        style="fill:#767773;fill-opacity:0;stroke:none;stroke-width:5.30000019;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4437-0"
@@ -143,6 +144,89 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="マカロン"
+     sodipodi:insensitive="true">
+    <ellipse
+       style="fill:#f6c7cf;fill-opacity:1;stroke:none;stroke-width:10.09126568;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4779-1-1-3"
+       cx="504.94904"
+       cy="102.0117"
+       rx="83.876328"
+       ry="34.59597"
+       transform="matrix(0.91481344,0.40387668,-0.10173119,0.99481192,0,0)" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#eda2a6;stroke-width:9.00082302;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4779-1-1"
+       cx="532.25433"
+       cy="46.202671"
+       rx="81.568115"
+       ry="29.30821"
+       transform="matrix(0.88728739,0.46121697,-0.30278331,0.95305942,0,0)" />
+    <ellipse
+       style="fill:#f6c7cf;fill-opacity:1;stroke:#eda2a6;stroke-width:9.41611958;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4779-1-1-7"
+       cx="533.32336"
+       cy="24.337393"
+       rx="84.961334"
+       ry="30.794134"
+       transform="matrix(0.8849032,0.46577497,-0.29935435,0.95414201,0,0)"
+       inkscape:transform-center-x="-62.466284"
+       inkscape:transform-center-y="-40.41494" />
+    <ellipse
+       style="fill:#f6c7cf;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4779-1-9"
+       cx="531.87646"
+       cy="25.512785"
+       rx="90.725555"
+       ry="44.99987"
+       transform="matrix(0.89939176,0.43714352,-0.22149662,0.97516114,0,0)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="うさぎ">
+    <path
+       style="fill:#faf500;fill-opacity:1;fill-rule:evenodd;stroke:#ab6600;stroke-width:8.90159988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 272.36142,440.59132 c 0,0 -20.75001,34.06643 -32.27778,52.99222 -12.39199,20.34462 14.8004,49.80983 35.51718,61.9792 20.71679,12.16937 60.01409,21.76126 72.40608,1.41664 11.52778,-18.92579 32.27779,-52.99222 32.27779,-52.99222 0,0 20.75,-34.06643 32.27778,-52.99223 4.86054,-7.97981 1.51341,-19.6689 -14.26185,-28.752 -15.77526,-9.08308 -27.13044,-6.39746 -31.99098,1.58236 -11.52778,18.9258 -20.75001,34.06643 -32.27778,52.99222 -2.17371,3.56869 -8.68595,5.1767 -12.31992,3.04205 -3.63396,-2.13465 -5.27139,-8.52991 -3.09769,-12.09859 11.52778,-18.92579 20.75,-34.06644 32.27778,-52.99223 4.86054,-7.97981 1.51342,-19.66891 -13.98653,-28.59028 -15.49995,-8.92135 -27.40576,-6.55918 -32.2663,1.42064 -11.52778,18.9258 -32.27778,52.99222 -32.27778,52.99222 z"
+       id="path4848"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cszscszsszsszsc" />
+    <ellipse
+       style="fill:#ff4f43;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4850"
+       cx="483.89542"
+       cy="308.30014"
+       rx="12.133414"
+       ry="12.504696"
+       transform="matrix(0.86224284,0.50649511,-0.52020148,0.85404357,0,0)" />
+    <ellipse
+       style="fill:#ff4f43;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4850-4"
+       cx="561.48541"
+       cy="308.30014"
+       rx="12.133414"
+       ry="12.504696"
+       transform="matrix(0.86224284,0.50649511,-0.52020148,0.85404357,0,0)" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4850-9"
+       cx="504.17093"
+       cy="277.27792"
+       rx="8.1421595"
+       ry="8.3913088"
+       transform="matrix(0.86224284,0.50649511,-0.52020148,0.85404357,0,0)" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4850-9-4"
+       cx="542.16772"
+       cy="277.27792"
+       rx="8.1421595"
+       ry="8.3913088"
+       transform="matrix(0.86224284,0.50649511,-0.52020148,0.85404357,0,0)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="眼鏡(ぼつ)"
      sodipodi:insensitive="true"
@@ -179,10 +263,10 @@
        sodipodi:nodetypes="czzc" />
   </g>
   <g
-     inkscape:label="眼鏡2"
+     inkscape:label="眼鏡2(ぼつ)"
      id="g4348"
      inkscape:groupmode="layer"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <path
        sodipodi:nodetypes="czzc"
@@ -218,8 +302,9 @@
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="スカート"
-     style="display:inline">
+     inkscape:label="スカート(ぼつ)"
+     style="display:none"
+     sodipodi:insensitive="true">
     <path
        style="fill:#bbbbbc;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 576.9014,605.65223 1.75791,-9.84426 47.46346,18.63383 -1.75791,9.84427"

@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>glasses.png</file>
-        <file>skirt.png</file>
         <file>strawberry.png</file>
+        <file>macaroon.png</file>
+        <file>rabbit.png</file>
     </qresource>
 </RCC>

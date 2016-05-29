@@ -73,14 +73,14 @@ ApplicationWindow {
         }
         MenuItem {
           text: "Shiraishi"
-          shortcut: "Ctrl+S"            //ショートカットの設定              [11]
-          iconSource: "glasses.png"     //アイコンの設定                 [12]
+          shortcut: "Ctrl+S"            //ショートカットの設定             [11]
+          iconSource: "macaroon.png"    //アイコンの設定                 [12]
           onTriggered: recentItem.addRecentItem(text, iconSource) //[13]
         }
         MenuItem {
           text: "Echizen"
           shortcut: "Shift+E"           //ショートカットの設定              [14]
-          iconSource: "skirt.png"       //アイコンの設定                 [15]
+          iconSource: "rabbit.png"      //アイコンの設定                 [15]
           onTriggered: recentItem.addRecentItem(text, iconSource) //[16]
         }
       }
