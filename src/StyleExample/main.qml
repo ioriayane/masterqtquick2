@@ -25,8 +25,8 @@ ApplicationWindow {
       Menu {
         title: "Character"
         MenuItem { text: "Miyano"; shortcut: "M"; iconSource: "strawberry.png" }
-        MenuItem { text: "Shiraishi"; shortcut: "Ctrl+S"; iconSource: "glasses.png" }
-        MenuItem { text: "Echizen"; shortcut: "Shift+E"; iconSource: "skirt.png" }
+        MenuItem { text: "Shiraishi"; shortcut: "Ctrl+S"; iconSource: "macaroon.png" }
+        MenuItem { text: "Echizen"; shortcut: "Shift+E"; iconSource: "rabbit.png" }
       }
       //2階層目のメニュー2つ目
       Menu {
