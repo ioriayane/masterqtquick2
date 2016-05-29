@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>DarkButtonStyle.qml</file>
+        <file>DarkMenuBarStyle.qml</file>
+        <file>DarkMenuStyle.qml</file>
+        <file>check.png</file>
+        <file>glasses.png</file>
+        <file>skirt.png</file>
+        <file>strawberry.png</file>
+        <file>sub_nor.png</file>
+        <file>sub_sel.png</file>
+    </qresource>
+</RCC>
