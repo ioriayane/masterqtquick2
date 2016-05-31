@@ -1,6 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Controls 1.5
-import QtQuick.Layouts 1.2                //追加
+import QtQuick.Layouts 1.3                //追加
 
 ApplicationWindow {
   visible: true
