@@ -1,43 +1,98 @@
-import QtQuick 2.2
-import QtQuick.Controls 1.1
-import QtQuick.Layouts 1.1
+import QtQuick 2.6
+import QtQuick.Controls 1.5
+import QtQuick.Layouts 1.3
 
 ApplicationWindow {
   visible: true
-  width: 640
-  height: 480
-  title: qsTr("External Drag and Drop")
+  width: 640;  height: 480
+  title: "Drag and Drop Example"
 
-  ColumnLayout {
+  //プレビューと一覧の配分を変えられる         [1]
+  SplitView {
     anchors.fill: parent
-    anchors.margins: 10
-    spacing: 5
-
-    Rectangle {
-      id: dropRect
-      Layout.fillWidth: true      //横幅はいっぱいに広げる
-      Layout.fillHeight: true     //高さはできるだけ広げる
-      Layout.preferredHeight: 100 //プレビュー領域と2:1の配分にする
-      radius: 4
-      color: "#aaaaaa"
-      states: State {
-        when: imageDropArea.containsDrag
-        //ドラッグ状態で領域内にいたら背景色と文字色を変更
-        PropertyChanges { target: dropRect; color: "#666666" }
-        PropertyChanges { target: message; color: "White" }
+    orientation: Qt.Vertical
+    //プレビューの表示領域
+    Image {
+      id: previewImage
+      Layout.fillWidth: true                    //横幅はいっぱいに広げる
+      Layout.fillHeight: true                   //高さはできるだけ広げる   [2]
+      Layout.minimumHeight: parent.height / 3   //親の1/3より小さくしない  [3]
+      Layout.margins: 5
+      fillMode: Image.PreserveAspectFit         //アスペクト比を維持
+      smooth: true
+    }
+    //ドロップした画像の一覧
+    ScrollView {
+      id: listScroll
+      Layout.fillWidth: true                    //横幅はいっぱいに広げる
+      Layout.minimumHeight: parent.height / 3   //親の1/3より小さくしない  [4]
+      Layout.margins: 5
+      horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOn  //横スクロールバーを常に表示
+      RowLayout {
+        spacing: 5
+        //一覧用のImageをRepeaterで管理
+        Repeater {
+          id: listRepeater
+          model: ListModel { id: listImageModel }   //モデルは空の状態から
+          delegate: Image {
+            //推奨サイズ                 [5]
+            Layout.preferredWidth:
+                (listScroll.viewport.height ) * sourceSize.width / sourceSize.height
+            Layout.preferredHeight: listScroll.viewport.height
+            fillMode: Image.PreserveAspectFit       //アスペクト比を維持
+            smooth: true
+            source: model.source                    //画像のパスはモデルから取得
+            MouseArea {
+              anchors.fill: parent
+            }
+            //ドラッグ＆ドロップ関係
+            Drag.active: imageDrag.drag.active          //ドラッグ機能On
+            Drag.dragType: Drag.Automatic               //外部へのドラッグ可 [6]
+            Drag.mimeData: { "text/uri-list": source }  //MIME情報      [7]
+            //ドラッグに必要なマウス処理
+            MouseArea {
+              id: imageDrag
+              anchors.fill: parent
+              drag.target: parent             //ドラッグする対象を指定
+              onReleased: parent.Drag.drop()  //離したときにドロップの処理を実行
+              //クリックされたらプレビューに表示
+              onClicked: previewImage.source = parent.source
+            }
+          }
+          //追加されたらプレビューに表示
+          onItemAdded: previewImage.source = item.source
+        }
       }
-      //ドロップするアイテムの説明
-      Text {
-        id: message
-        anchors.centerIn: parent
-        horizontalAlignment: Text.AlignHCenter
-        text: "Please drop the image here.\n(*.bmp, *.png, *.jpg)"
-      }
-      //ドロップの受付
-      DropArea {
-        id: imageDropArea
-        anchors.fill: parent
-        onDropped: {
+    }
+  }
+  //ドラッグ状態に反応してことを表す四角
+  Rectangle {
+    id: dropRect
+    anchors.fill: parent
+    anchors.margins: 5
+    radius: 4
+    color: "#000000"
+    opacity: 0
+    states: State {
+      //ドラッグ状態で領域内にいたら背景色と文字色を変更
+      when: imageDropArea.containsDrag         // [8]
+      PropertyChanges { target: dropRect; opacity: 0.5 }
+      PropertyChanges { target: message; opacity: 1 }
+    }
+    //ドラッグ状態で領域内にいるときの説明
+    Text {
+      id: message
+      anchors.centerIn: parent
+      color: "white"
+      text: "Detecting..."
+    }
+    //ドロップの受付
+    DropArea {                                    // [9]
+      id: imageDropArea
+      anchors.fill: parent
+      keys: ["text/uri-list"]    //受け取るデータを絞る // [10]
+      onDropped: {                                // [11]
+        if(drop.hasUrls){                         // [12]
           //drop.urlsのパスをプレビュー用のモデルへ追加
           for(var i=0; i<drop.urls.length; i++){
             //簡易的に画像の拡張子に限定
@@ -45,66 +100,29 @@ ApplicationWindow {
                 || drop.urls[i].indexOf(".png") >= 0
                 || drop.urls[i].indexOf(".jpg") >= 0){
               //モデルへ追加
-              previewImageModel.append({"source": drop.urls[i]})
+              listImageModel.append({"source": drop.urls[i]})
             }
           }
-          console.debug("accepted : " + drop.accepted)
-          console.debug("action : " + drop.action)
-          console.debug("colorData : " + drop.colorData)
-          console.debug("drag.source : " + drop.source)
-          console.debug("formats : " + drop.formats)  //mime
-          console.debug("hasColor : " + drop.hasColor)
-          console.debug("hasHtml : " + drop.hasHtml)
-          console.debug("hasText : " + drop.hasText)
-          console.debug("hasUrls : " + drop.hasUrls)
-          console.debug("html : " + drop.html)
-          console.debug("keys : " + drop.keys)  //formatsと同じ内容(外部ドロップだけ？）
-          console.debug("proposedAction : " + drop.proposedAction)
-          console.debug("supportedActions : " + drop.supportedActions)
-          console.debug("text : " + drop.text)  //複数のときはカンマ区切り
-          console.debug("urls : " + drop.urls)  //URLのリスト
-          console.debug("x : " + drop.x)
-          console.debug("y : " + drop.y)
         }
-      }
-    }
-
-    //画像のプレビューをスクロールできるようにする
-    ScrollView {
-      Layout.fillWidth: true                //横幅はいっぱいに広げる
-      Layout.fillHeight: true               //高さはできるだけ広げる
-      Layout.preferredHeight: 50            //ドロップ領域と2:1の配分にする
-      RowLayout {
-        anchors.top: parent.top             //高さはScrollViewに合わせる
-        anchors.bottom: parent.bottom
-        //プレビュー表示用のImageをRepeaterで管理
-        Repeater {
-          delegate: Image {
-            Layout.preferredWidth: 150              //推奨サイズ
-            Layout.preferredHeight: 150
-            fillMode: Image.PreserveAspectFit
-            smooth: true
-            source: model.source                    //画像のパスはモデルから取得
-
-//            Drag.active: xAxisDrag.drag.active
-//            //ドロップとの当たり判定の位置
-//            Drag.hotSpot.x: width / 2
-//            Drag.hotSpot.y: height / 2
-//            //ドラッグに必要なマウス処理
-//            MouseArea {
-//              id: xAxisDrag
-//              anchors.fill: parent
-//              //ドラッグする対象を指定
-//              drag.target: parent
-//              //離したときにドロップの処理を実行
-//              onReleased: parent.Drag.drop()
-//            }
-          }
-          model: ListModel { id: previewImageModel} //モデルは空の状態から
-        }
+        console.debug("accepted : " + drop.accepted)  //イベントを受け入れたか
+        console.debug("action : " + drop.action)      //コピーか移動かなど
+        console.debug("colorData : " + drop.colorData)//色情報
+        console.debug("drag.source : " + drop.source) //ドラッグされたオブジェクト（エレメントなど）
+        console.debug("formats : " + drop.formats)    //mime形式のリスト
+        console.debug("hasColor : " + drop.hasColor)  //colorDataに値があるか
+        console.debug("hasHtml : " + drop.hasHtml)    //htmlに値があるか
+        console.debug("hasText : " + drop.hasText)    //textに値があるか
+        console.debug("hasUrls : " + drop.hasUrls)    //urlsに値があるか
+        console.debug("html : " + drop.html)          //html情報
+        console.debug("keys : " + drop.keys)          //データ型など特定するキー情報
+        console.debug("proposedAction : " + drop.proposedAction)
+        console.debug("supportedActions : " + drop.supportedActions)
+        console.debug("text : " + drop.text)          //テキスト情報
+        console.debug("urls : " + drop.urls)          //URLのリスト（ファイルパスなど）
+        console.debug("x : " + drop.x)
+        console.debug("y : " + drop.y)
+        console.debug(Qt.CopyAction + "," + Qt.MoveAction + "," + Qt.LinkAction + "," + Qt.IgnoreAction)
       }
     }
   }
-
-
 }
