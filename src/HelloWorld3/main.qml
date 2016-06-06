@@ -35,7 +35,7 @@ ApplicationWindow {
   MessageDialog {
     id: messageDialog
     title: qsTr("May I have your attention, please?")
-    //ダイアログのメッセージを変更して表示 [4]
+    //ダイアログのメッセージを変更して表示
     function show(caption) {
       messageDialog.text = caption;
       messageDialog.open();
