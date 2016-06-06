@@ -4,24 +4,19 @@ import QtQuick.Window 2.2
 
 //Windowを作成するエレメント　[2]
 Window {
-  //作成したウインドウを表示状態にする
-  visible: true
+  visible: true             //作成したウインドウを表示状態にする
 
   //マウス入力を受け付ける領域の設定
   MouseArea {
-    //親エレメントの全体に配置
-    anchors.fill: parent
-    //クリックされた時の動作を指定（アプリの終了）
-    onClicked: {
+    anchors.fill: parent    //親エレメントの全体に配置
+    onClicked: {            //クリック時の動作（アプリの終了）
       Qt.quit();
     }
   }
 
   //文字列を配置
   Text {
-    //表示する文字列を指定
-    text: qsTr("Hello World")
-    //親のエレメントの中心に配置
-    anchors.centerIn: parent
+    text: qsTr("Hello World") //表示する文字列を指定
+    anchors.centerIn: parent  //親のエレメントの中心に配置
   }
 }

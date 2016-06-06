@@ -4,43 +4,30 @@ import QtQuick.Controls 1.5
 
 //メニューバー、ステータスバー、ツールバーを追加できるWindowを作成するエレメント　[2]
 ApplicationWindow {
-  //作成したウインドウを表示状態にする [3]
-  visible: true
-  //コンテンツ領域のサイズ [4]
-  width: 640
+  visible: true                     //作成したウインドウを表示状態にする [3]
+  width: 640                        //コンテンツ領域のサイズ [4]
   height: 480
-  //ウインドウのタイトル
-  title: qsTr("Hello World")
+  title: qsTr("Hello World")        //ウインドウのタイトル
 
   //メニューバーの設定 [5]
   menuBar: MenuBar {
-    //メニューに項目「File」を追加
-    Menu {
-      //項目の名称を指定
-      title: qsTr("File")
-      //子項目「Open」を追加
-      MenuItem {
-        //子項目の名称を指定
-        text: qsTr("&Open")
-        //クリックされたときの動作を指定（ログ出力）
-        onTriggered: console.log("Open action triggered");
+    Menu {                          //メニューに項目「File」を追加
+      title: qsTr("File")           //項目の名称を指定
+      MenuItem {                    //子項目「Open」を追加
+        text: qsTr("&Open")         //子項目の名称を指定
+        onTriggered: console.log("Open action triggered");  //選択時の動作（ログ出力）
       }
-      //子項目「Exit」を追加
-      MenuItem {
-        //子項目の名称を指定
-        text: qsTr("Exit")
-        //クリックされた時の動作を指定（アプリの終了）
-        onTriggered: Qt.quit();
+      MenuItem {                    //子項目「Exit」を追加
+        text: qsTr("Exit")          //子項目の名称を指定
+        onTriggered: Qt.quit();     //選択時の動作（アプリ終了）
       }
     }
   }
 
   //文字列を配置 [6]
   Label {
-    //表示する文字列を指定
-    text: qsTr("Hello World")
-    //親のエレメントの中心に配置
-    anchors.centerIn: parent
+    text: qsTr("Hello World")       //表示する文字列を指定
+    anchors.centerIn: parent        //親のエレメントの中心に配置
     //親のエレメントの上側に合わせて配置
 //        anchors.top: parent.top
 //        anchors.horizontalCenter: parent.horizontalCenter
