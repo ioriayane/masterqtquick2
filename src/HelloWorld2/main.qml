@@ -4,7 +4,10 @@ import QtQuick.Window 2.2
 
 //Windowを作成するエレメント　[2]
 Window {
-  visible: true             //作成したウインドウを表示状態にする
+  visible: true                     //作成したウインドウを表示状態にする
+  width: 640                        //コンテンツ領域のサイズ
+  height: 480
+  title: qsTr("Hello World")        //ウインドウのタイトル
 
   //マウス入力を受け付ける領域の設定
   MouseArea {
